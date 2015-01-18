@@ -6,7 +6,7 @@ import weka.core.Instances;
 import weka.core.converters.ArffSaver;
 import weka.core.converters.CSVLoader;
 
-public class WekaCSVConverter {
+public class CSV2Arff {
    /**
     * takes 2 arguments:
     * - CSV input file
@@ -19,14 +19,13 @@ public class WekaCSVConverter {
       for (String s : args) {
          System.out.println(s);
          if (s == null) {
-            System.out.println("\nUsage: CSV2Arff <input.csv> <output.arff>\n");
+            System.out.println("\nUsage: ./csv2arff.sh <input.csv> <output.arff>\n");
             System.exit(1);
          }
       }
 
       if (args.length != 2) {
-         System.out.println("\nUsage: CSV2Arff <input.csv> <output.arff>\n");
-
+         System.out.println("\nUsage: ./csv2arff.sh <input.csv> <output.arff>\n");
          System.exit(1);
       }
 
