@@ -7,7 +7,7 @@ import weka.filters.Filter;
 import weka.filters.supervised.attribute.Discretize;
 
 public class Discretizer {
-   private static final int CLASS_INDEX = 0;
+   private static final int CLASS_INDEX = 37;
    
    /**
     * loads the given ARFF file and sets the class attribute as the last
