@@ -1,14 +1,18 @@
 package discretize;
-
 import java.io.*;
-
-import weka.core.*;
-import weka.filters.Filter;
-import weka.filters.supervised.attribute.Discretize;
-
-public class Discretizer {
-   private static final int CLASS_INDEX = 0;
-   
+ 
+ import weka.core.*;
+ import weka.filters.Filter;
+ import weka.filters.supervised.attribute.Discretize;
+ 
+ /**
+  * Shows how to generate compatible train/test sets using the Discretize
+  * filter.
+  *
+  * @author FracPete (fracpete at waikato dot ac dot nz)
+  */
+ public class Discretizer {
+ 
    /**
     * loads the given ARFF file and sets the class attribute as the last
     * attribute.
@@ -22,7 +26,7 @@ public class Discretizer {
  
      reader = new BufferedReader(new FileReader(filename));
      result = new Instances(reader);
-     result.setClassIndex(CLASS_INDEX);
+     result.setClassIndex(result.numAttributes() - 1);
      reader.close();
  
      return result;
@@ -59,20 +63,14 @@ public class Discretizer {
     */
    public static void main(String[] args) throws Exception {
      Instances     inputTrain;
+     Instances     inputTest;
      Instances     outputTrain;
+     Instances     outputTest;
      Discretize    filter;
-     
-     if (args.length != 2) {
-        System.out.println("usage: ./discretize.sh <input.arff> <output.arff>");
-        return;
-     }
-     
-     String inputPath = args[0];
-     String outputName = args[1];
-     
+ 
      // load data (class attribute is assumed to be last attribute)
-     inputTrain = load(inputPath);
-//     inputTest  = load(args[1]);
+     inputTrain = load(args[0]);
+     inputTest  = load(args[1]);
  
      // setup filter
      filter = new Discretize();
@@ -80,9 +78,10 @@ public class Discretizer {
  
      // apply filter
      outputTrain = Filter.useFilter(inputTrain, filter);
+     outputTest  = Filter.useFilter(inputTest,  filter);
  
      // save output
-     save(outputTrain, outputName);
+     save(outputTrain, args[2]);
+     save(outputTest,  args[3]);
    }
-
-}
+ }

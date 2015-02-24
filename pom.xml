@@ -34,8 +34,10 @@
 					<classpathScope>compile</classpathScope>
 					<mainClass>${main.class}</mainClass>
 					<arguments>
-						<argument>${input}</argument>
-						<argument>${output}</argument>
+						<argument>${inputTrain}</argument>
+						<argument>${inputTest}</argument>
+						<argument>${outputTrain}</argument>
+						<argument>${outputTest}</argument>
 					</arguments>
 				</configuration>
 			</plugin>
