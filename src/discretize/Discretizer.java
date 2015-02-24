@@ -12,7 +12,7 @@ import java.io.*;
   * @author FracPete (fracpete at waikato dot ac dot nz)
   */
  public class Discretizer {
- 
+
    /**
     * loads the given ARFF file and sets the class attribute as the last
     * attribute.
