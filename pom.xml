@@ -33,12 +33,6 @@
 					<includePluginDependencies>false</includePluginDependencies>
 					<classpathScope>compile</classpathScope>
 					<mainClass>${main.class}</mainClass>
-					<arguments>
-						<argument>${inputTrain}</argument>
-						<argument>${inputTest}</argument>
-						<argument>${outputTrain}</argument>
-						<argument>${outputTest}</argument>
-					</arguments>
 				</configuration>
 			</plugin>
 		</plugins>
